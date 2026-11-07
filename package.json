@@ -1,0 +1,26 @@
+{
+  "name": "kisaan-ml",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": [
+    "workers",
+    "render-service"
+  ],
+  "scripts": {
+    "dev:workers": "npm run dev --workspace=workers",
+    "dev:render": "npm run dev --workspace=render-service",
+    "deploy:workers": "npm run deploy --workspace=workers",
+    "deploy:render": "npm run deploy --workspace=render-service",
+    "train:yield": "cd ml && python train_yield.py",
+    "train:price": "cd ml && python train_price.py",
+    "build:app": "cd app && flutter build apk --release --split-per-abi && flutter build web --release",
+    "test": "npm run test --workspaces --if-present"
+  },
+  "devDependencies": {
+    "wrangler": "^3.60.0",
+    "typescript": "^5.5.0"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}
